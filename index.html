@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini shop!</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbaritem"><a href="#sec1">welcome</a></div>
+        <div class="navbaritem"><a href="#sec2">paintings</a></div>
+        <div class="navbaritem"><a href="#">socials</a></div>
+    </div>
+    <div id="sec1" class="section1">
+        <div class="text1"> welcome to my mini shop where i sell paintings! <br> i make paintings in all sizes such as: <br> small <br> medium <br> large and more!</div>
+        <h4>some of my work!</h2>
+        <div class="imagegallery">
+            <img id="1" src="catpaws.jpg" alt="">
+            <img id="2" src="froggie.jpg" alt="">
+            <img id="3" src="violin.jpg" alt="">
+        </div>
+    </div>
+    <div id="sec2" class="section2">
+        <div class="maintext"><p>paintings!</p></div>
+        <div class="painting">
+            <img src="violin.jpg" alt="">
+            <div class="container">
+                <p>Violin: <br> 200 KČ</p>
+                <div class="buttoncontainer">
+                    <button>buy now!</button>
+                </div>
+            </div>
+        </div>
+        <div class="painting">
+            <img src="catpaws.jpg" alt="">
+            <div class="container">
+                <p>Cat Paws: <br> 300 KČ</p>
+                <div class="buttoncontainer">
+                    <button>buy now!</button>
+                </div>
+            </div>
+        </div>
+        <div class="painting">
+            <img src="froggie.jpg" alt="">
+            <div class="container">
+                <p>Froggie: <br> 250 KČ</p>
+                <div class="buttoncontainer">
+                    <button>buy now!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var catpaws = document.getElementById('1');
+        var froggie = document.getElementById('2');
+        var violin = document.getElementById('3');
+
+        function hide(whattohide) {
+            whattohide.style.animation = '0.5s cubic-bezier(0, 0, 0, 1) hide';
+            setTimeout(() => {
+                whattohide.style.width = '9vh';
+                whattohide.style.opacity = '0.5';
+            }, 495)
+        }
+        function unhide(whattoshow) {
+            whattoshow.style.animation = '0.5s cubic-bezier(0, 0, 0, 1) unhide';
+            setTimeout(() => {
+                whattoshow.style.width = '13vh';
+                whattoshow.style.opacity = '1';
+            }, 495)
+        }
+        function show(whattoshow) {
+            whattoshow.style.opacity = '1';
+            whattoshow.style.animation = '0.5s cubic-bezier(0, 0, 0, 1) scaleup';
+            setTimeout(() => {
+                whattoshow.style.width = '17vh';
+            }, 495);
+        }
+        function unshow(whattohide) {
+            whattohide.style.animation = '0.5s cubic-bezier(0, 0, 0, 1) scaledown';
+            setTimeout(() => {
+                whattohide.style.width = '13vh';
+            }, 495);
+        }
+
+        froggie.onmouseover = function() {
+            show(froggie);
+            hide(catpaws);
+            hide(violin);
+        }
+        froggie.onmouseleave = function() {
+            unshow(froggie);
+            unhide(catpaws);
+            unhide(violin);
+        }
+        catpaws.onmouseover = function() {
+            show(catpaws);
+            hide(froggie);
+            hide(violin);
+        }
+        catpaws.onmouseleave = function() {
+            unshow(catpaws);
+            unhide(froggie);
+            unhide(violin);
+        }
+        violin.onmouseover = function() {
+            show(violin);
+            hide(froggie);
+            hide(catpaws);
+        }
+        violin.onmouseleave = function() {
+            unshow(violin);
+            unhide(froggie);
+            unhide(catpaws);
+        }
+    </script>
+</body>
+</html>
